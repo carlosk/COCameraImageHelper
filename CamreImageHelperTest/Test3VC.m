@@ -7,7 +7,6 @@
 //
 
 #import "Test3VC.h"
-#import "COUIImagePickerController.h"
 #import "CameraImageHelper.h"
 @interface Test3VC ()
 @property(retain,nonatomic) CameraImageHelper *CameraHelper;
