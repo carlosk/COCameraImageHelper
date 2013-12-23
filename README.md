@@ -2,7 +2,7 @@
 
 ##简介
 	
-**COCameraImageHelper**这是一个通过封装**AVFoundation**实现自定义相机功能的辅助类
+[**COCameraImageHelper**](https://github.com/carlosk/COCameraImageHelper)这是一个通过封装**AVFoundation**实现自定义相机功能的辅助类
 	
 ##如何添加
 
