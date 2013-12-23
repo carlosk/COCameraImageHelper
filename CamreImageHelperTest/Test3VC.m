@@ -12,6 +12,7 @@
 @property(retain,nonatomic) CameraImageHelper *CameraHelper;
 @property(nonatomic,weak)IBOutlet UIView *cameraV;
 @property(nonatomic,weak)IBOutlet UIImageView *imageV;
+@property(nonatomic,weak)IBOutlet UILabel *statusL;
 
 
 @end
@@ -29,6 +30,8 @@
 
     if (sender.tag == 2) {
         [_CameraHelper onTorch:AVCaptureTorchModeOn];
+        self.statusL.text =[_CameraHelper isOnTorch]?@"已经开启":@"关闭";
+
     }else{
         [_CameraHelper takeImage];
 //    COUIImagePickerController *imagePicker = [[ COUIImagePickerController alloc ] init ];
@@ -44,10 +47,12 @@
     [super viewDidLoad];
     
     _CameraHelper = [[CameraImageHelper alloc]init];
-    
+
     // 开始实时取景
     [_CameraHelper startRunning];
     [_CameraHelper embedPreviewInView:self.cameraV];
+    self.statusL.text =[_CameraHelper isOnTorch]?@"已经开启":@"关闭";
+
     __block typeof(self)bSelf = self;
 
     _CameraHelper.imageTakeFinishedBlock = ^(UIImage *image){
@@ -59,7 +64,13 @@
     };
     [_CameraHelper changePreviewOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 }
+- (void)viewWillAppear:(BOOL)animated{
+    self.statusL.text =[_CameraHelper isOnTorch]?@"已经开启":@"关闭";
 
+}
+- (void)viewDidAppear:(BOOL)animated{
+    self.statusL.text =[_CameraHelper isOnTorch]?@"已经开启":@"关闭";
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

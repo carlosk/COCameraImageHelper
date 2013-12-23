@@ -186,4 +186,9 @@
     [aView.layer addSublayer: self.preview];
 }
 
+//闪光灯是否开启
+- (BOOL)isOnTorch{
+    return self.device.torchMode == AVCaptureFlashModeOn;
+}
+
 @end

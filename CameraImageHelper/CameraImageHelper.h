@@ -28,4 +28,6 @@ typedef void(^CameraImageFocusFinishedBlcok)(BOOL isFocus);
 - (void)changePreviewOrientation:(UIInterfaceOrientation)interfaceOrientation;
 //闪光灯
 - (void)onTorch:(AVCaptureTorchMode )mode;
+//闪光灯是否开启
+- (BOOL)isOnTorch;
 @end
