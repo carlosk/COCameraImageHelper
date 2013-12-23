@@ -9,7 +9,7 @@
 * 如果您使用cocoapods管理第三方库的话,可以在podfile里增加一行:
 
 ```
-pod 'COCameraImageHelper', :git => 'https://github.com/carlosk/COCameraImageHelper'
+pod 'COCameraImageHelper', :git =\> 'https://github.com/carlosk/COCameraImageHelper'
 ```
 
 * 如果您直接想把代码添加到项目中,需要做以下几步
@@ -37,7 +37,8 @@ pod 'COCameraImageHelper', :git => 'https://github.com/carlosk/COCameraImageHelp
 - (void)changePreviewOrientation:(UIInterfaceOrientation)interfaceOrientation;
 //闪光灯
 - (void)onTorch:(AVCaptureTorchMode )mode;
-```
+//闪光灯是否开启
+- (BOOL)isOnTorch;```
 
 
  
