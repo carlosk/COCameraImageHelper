@@ -30,4 +30,6 @@ typedef void(^CameraImageFocusFinishedBlcok)(BOOL isFocus);
 - (void)onTorch:(AVCaptureTorchMode )mode;
 //闪光灯是否开启
 - (BOOL)isOnTorch;
+
+- (void)distory;
 @end

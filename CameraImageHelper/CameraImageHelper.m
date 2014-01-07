@@ -137,6 +137,9 @@
 }
 
 - (void)onTorch:(AVCaptureTorchMode )mode{
+    if (!self.device.hasTorch) {
+        return;
+    }
     [self.session beginConfiguration];
     [self.device lockForConfiguration:nil];
     [self.device setTorchMode: mode];
@@ -190,5 +193,13 @@
 - (BOOL)isOnTorch{
     return self.device.torchMode == AVCaptureFlashModeOn;
 }
+- (void)distory{
+    [self stopRunning];
+    
+    [self.device removeObserver:self forKeyPath:kFocusKey];
+    
+	self.session = nil;
+	self.image = nil;
 
+}
 @end
